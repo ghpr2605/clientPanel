@@ -1,11 +1,18 @@
 import React from 'react';
+import {BrowserRouter as Router, Switch, Link} from 'react-router-dom';
+import AppNavbar from './components/layouts/AppNavbar';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>HELLO</h1>
+    <Router>
+      <div className="App">
+        <AppNavbar></AppNavbar>
+        <div className="container">
+          <h1>HELLO</h1>
+        </div>
     </div>
+    </Router>
   );
 }
 
