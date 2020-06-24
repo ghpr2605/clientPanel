@@ -1,6 +1,7 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Link, Route} from 'react-router-dom';
 import AppNavbar from './components/layouts/AppNavbar';
+import Dashboard from './components/layouts/Dashboard';
 import './App.css';
 
 function App() {
@@ -9,7 +10,9 @@ function App() {
       <div className="App">
         <AppNavbar></AppNavbar>
         <div className="container">
-          <h1>HELLO</h1>
+          <Switch>
+            <Route exact path="/" component={Dashboard}></Route>
+          </Switch>
         </div>
     </div>
     </Router>
