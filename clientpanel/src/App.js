@@ -6,7 +6,8 @@ import store from './store'
 
 import AppNavbar from './components/layouts/AppNavbar';
 import Dashboard from './components/layouts/Dashboard';
-import AddClient from './components/client/AddClient'
+import AddClient from './components/client/AddClient';
+import ClientDetails from './components/client/ClientDetails'
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Dashboard}></Route>
               <Route exact path="/client/add" component={AddClient}></Route>
+              <Route exact path="/client/:id" component={ClientDetails}></Route>
             </Switch>
           </div>
         </div>
