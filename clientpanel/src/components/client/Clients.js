@@ -10,8 +10,27 @@ import Spinner from '../layouts/Loading'
 
 
 class Clients extends Component {
+    state = {
+        totalOwed: null
+    }
+    
+    static getDerivedStateFromProps(props, state){
+        const clients = props.clients;
+
+        if(clients){
+            const total = clients.reduce((total,client) => {
+                return total + parseInt(client.balance)
+            },0)
+
+            return {totalOwed:total}
+        }
+
+        return null;
+    }
+
     render() {
         const clients = this.props.clients;
+        const totalOwed = this.state.totalOwed;
 
         if(clients){
             return (
@@ -21,7 +40,9 @@ class Clients extends Component {
                             <h2><i className="fa fa-users"></i> Clients</h2>
                         </div>
                         <div className="col-md-6">
-
+                            <h5 className="text-right text-secondary">
+            Total Owed <span className="text-primary">Rs {totalOwed}</span>
+                            </h5>
                         </div>
                     </div>
                     <table className="table table-striped">
