@@ -6,6 +6,8 @@ import { compose } from 'redux';
 import { firestoreConnect} from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
+import Spinner from '../layouts/Loading'
+
 
 class Clients extends Component {
     render() {
@@ -49,11 +51,8 @@ class Clients extends Component {
                 </div>
             )
         }else{
-
+            return <Spinner></Spinner>
         }
-        return (
-            <h1>CLIENTS</h1>
-        )
     }
 }
 
