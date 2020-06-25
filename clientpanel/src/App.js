@@ -6,6 +6,7 @@ import store from './store'
 
 import AppNavbar from './components/layouts/AppNavbar';
 import Dashboard from './components/layouts/Dashboard';
+import AddClient from './components/client/AddClient'
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <div className="container">
             <Switch>
               <Route exact path="/" component={Dashboard}></Route>
+              <Route exact path="/client/add" component={AddClient}></Route>
             </Switch>
           </div>
         </div>
