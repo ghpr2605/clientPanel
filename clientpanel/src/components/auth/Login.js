@@ -41,7 +41,7 @@ class Login extends Component {
                             <h1 className="text-center pb-4 pt-3">
                                 <span className="text-primary">
                                     <i className="fa fa-lock"></i>
-                                    {' '}Login
+                                    {' '} Login
                                 </span>
                             </h1>
                             <form onSubmit={this.onSubmit}>
@@ -76,7 +76,9 @@ class Login extends Component {
 }
 
 Login.propTypes ={
-    firebase: PropTypes.object.isRequired
+    firebase: PropTypes.object.isRequired,
+    notify: PropTypes.object.isRequired,
+    notifyUser: PropTypes.func.isRequired
 }
 
 export default compose(
