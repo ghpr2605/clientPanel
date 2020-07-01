@@ -39,6 +39,8 @@ class Login extends Component {
 
     render() {
         const {message, messageType} = this.props.notify;
+        const {email, password} = this.state;
+
         return (
             <div className="row">
                 <div className="col-md-6 mx-auto">
@@ -61,7 +63,7 @@ class Login extends Component {
                                     className="form-control"
                                     name="email"
                                     required
-                                    value={this.state.email}
+                                    value={email}
                                     onChange={this.onChange}></input>
                                 </div>
                                 <div className="form-group">
@@ -72,7 +74,7 @@ class Login extends Component {
                                     name="password"
                                     id="password"
                                     required
-                                    value={this.state.password}
+                                    value={password}
                                     onChange={this.onChange}></input>
                                     <br></br>
                                     <input type="checkbox" onClick={this.showPassword}></input><span> Show Password </span>

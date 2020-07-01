@@ -35,6 +35,8 @@ class Register extends Component {
 
     render() {
         const {message, messageType} = this.props.notify;
+        const {email, password} = this.state;
+
         return (
             <div className="row">
                 <div className="col-md-6 mx-auto">
@@ -57,7 +59,7 @@ class Register extends Component {
                                     className="form-control"
                                     name="email"
                                     required
-                                    value={this.state.email}
+                                    value={email}
                                     onChange={this.onChange}></input>
                                 </div>
                                 <div className="form-group">
@@ -67,7 +69,7 @@ class Register extends Component {
                                     className="form-control"
                                     name="password"
                                     required
-                                    value={this.state.password}
+                                    value={password}
                                     onChange={this.onChange}></input>
                                 </div>
                                 <input type="submit" value="Register" className="btn btn-primary btn-block"></input>
