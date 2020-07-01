@@ -70,6 +70,7 @@ class Login extends Component {
                                     type="password"
                                     className="form-control"
                                     name="password"
+                                    id="password"
                                     required
                                     value={this.state.password}
                                     onChange={this.onChange}></input>
