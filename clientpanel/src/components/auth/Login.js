@@ -22,6 +22,8 @@ class Login extends Component {
         const {firebase, notifyUser} = this.props;
         const {email, password} = this.state;
 
+        notifyUser('','');
+
         firebase.login({
             email,
             password
