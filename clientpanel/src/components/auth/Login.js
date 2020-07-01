@@ -27,6 +27,15 @@ class Login extends Component {
             password
         }).catch(err => notifyUser('Inavlid Login Details', 'error'));
     }
+    
+    showPassword = (e) => {
+        var inputPassword = document.getElementById('password');
+        if(inputPassword.type === "password"){
+            inputPassword.type ="text"
+        }else{
+            inputPassword.type = "password"
+        }
+    }
 
     render() {
         const {message, messageType} = this.props.notify;
@@ -64,6 +73,8 @@ class Login extends Component {
                                     required
                                     value={this.state.password}
                                     onChange={this.onChange}></input>
+                                    <br></br>
+                                    <input type="checkbox" onClick={this.showPassword}></input><span> Show Password </span>
                                 </div>
                                 <input type="submit" value="Login" className="btn btn-primary btn-block"></input>
                             </form>
