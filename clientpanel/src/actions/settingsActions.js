@@ -2,37 +2,40 @@ import {DISABLE_BALANCE_ON_ADD, DISABLE_BALANCE_ON_EDIT, ALLOW_REGISTRATION} fro
 
 export const setDisabledBalanceOnAdd = () => {
     const settings = JSON.parse(localStorage.getItem('settings'));
+    let { disableBalanceOnAdd } = settings;
 
-    settings.disableBalanceOnAdd = !settings.disableBalanceOnAdd;
+    disableBalanceOnAdd = !disableBalanceOnAdd;
 
     localStorage.setItem('settings', JSON.stringify(settings));
 
     return {
         type: DISABLE_BALANCE_ON_ADD,
-        payload: settings.disableBalanceOnAdd
+        payload: disableBalanceOnAdd
     }
 }
 
 export const setDisabledBalanceOnEdit = () => {
     const settings = JSON.parse(localStorage.getItem('settings'));
+    let { disabledBalanceOnEdit } = settings;
 
-    settings.disabledBalanceOnEdit = !settings.disabledBalanceOnEdit;
+    disabledBalanceOnEdit = !disabledBalanceOnEdit;
 
     localStorage.setItem('settings', JSON.stringify(settings));
     return {
         type: DISABLE_BALANCE_ON_EDIT,
-        payload: settings.disabledBalanceOnEdit
+        payload: disabledBalanceOnEdit
     }
 }
 
 export const setAllowRegistration = () => {
     const settings = JSON.parse(localStorage.getItem('settings'));
+    let { allowRegistration } = settings;
 
-    settings.allowRegistration = !settings.allowRegistration;
+    allowRegistration = !allowRegistration;
 
     localStorage.setItem('settings', JSON.stringify(settings));
     return {
         type: ALLOW_REGISTRATION,
-        payload: settings.allowRegistration
+        payload: allowRegistration
     }
 }
