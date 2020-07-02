@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { firestoreConnect, createFirestoreConnect} from 'react-redux-firebase';
+import { firestoreConnect } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
 class AddClient extends Component {
@@ -30,6 +30,7 @@ class AddClient extends Component {
     }
     render() {
         const {disableBalanceOnAdd} = this.props.settings;
+        const { firstName, lastName, email, phone, balance} = this.state;
 
         return (
             <div>
@@ -52,7 +53,7 @@ class AddClient extends Component {
                                 name="firstName"
                                 required
                                 onChange={this.onChange}
-                                value={this.state.firstName}>   
+                                value={firstName}>   
                                 </input>
                             </div>
                             <div className="form-group">
@@ -63,7 +64,7 @@ class AddClient extends Component {
                                 name="lastName"
                                 required
                                 onChange={this.onChange}
-                                value={this.state.lastName}>   
+                                value={lastName}>   
                                 </input>
                             </div>
                             <div className="form-group">
@@ -73,7 +74,7 @@ class AddClient extends Component {
                                 className="form-control"
                                 name="email"
                                 onChange={this.onChange}
-                                value={this.state.email}>   
+                                value={email}>   
                                 </input>
                             </div>
                             <div className="form-group">
@@ -85,7 +86,7 @@ class AddClient extends Component {
                                 required
                                 minLength="10"
                                 onChange={this.onChange}
-                                value={this.state.phone}>   
+                                value={phone}>   
                                 </input>
                             </div>
                             <div className="form-group">
@@ -95,7 +96,7 @@ class AddClient extends Component {
                                 className="form-control"
                                 name="balance"
                                 onChange={this.onChange}
-                                value={this.state.balance}
+                                value={balance}
                                 disabled={disableBalanceOnAdd}>   
                                 </input>
                             </div>
