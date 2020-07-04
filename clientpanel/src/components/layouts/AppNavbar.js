@@ -51,33 +51,37 @@ class AppNavbar extends Component {
                         <ul className="navbar-nav mr-auto">
                             { this.state.isAuthenticated ? 
                                  (<li className="nav-item">
-                                    <Link to="/" className="nav-link">Dashboard</Link>
+                                    <Link to="/" className="nav-link">Application details</Link>
+                                 </li> ): null}
+                            { this.state.isAuthenticated ? 
+                                 (<li className="nav-item">
+                                    <Link to="/dashboard" className="nav-link">Dashboard</Link>
                                  </li> ): null}
                         </ul>
                         { this.state.isAuthenticated ? 
-                                 (<ul className="navbar-nav ml-auto">
+                                (<ul className="navbar-nav ml-auto">
                                     <li className="nav-item">
-                        <a href="#!" className="nav-link">{auth.email}</a></li> 
-                        <li className="nav-item">
-                            <Link to="/settings" className="nav-link">Settings</Link>
-                                 </li>
-                        <li className="nav-item">
-                        <a href="#!" className="nav-link" onClick={this.onLogoutClick}>Logout</a></li>
-                                 </ul> ): null}
-                                 {allowRegistration && !this.state.isAuthenticated  ? (
-                                     <ul className="navbar-nav ml-auto">
-                                         <li className="nav-items">
-                                             <Link to="/login" className="nav-link">
-                                                 Login
-                                             </Link>
-                                         </li>
-                                         <li className="nav-items">
-                                             <Link to="/register" className="nav-link">
-                                                 Register
-                                             </Link>
-                                         </li>
-                                     </ul>
-                                 ) : null}
+                                        <a href="#!" className="nav-link">{auth.email}</a>
+                                    </li> 
+                                    <li className="nav-item">
+                                        <Link to="/settings" className="nav-link">Settings</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/about" className="nav-link">About Us</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a href="#!" className="nav-link" onClick={this.onLogoutClick}>Logout</a>
+                                    </li>
+                                </ul> ): null}
+                        {allowRegistration && !this.state.isAuthenticated  ? 
+                                (<ul className="navbar-nav ml-auto">
+                                    <li className="nav-items">
+                                        <Link to="/login" className="nav-link">Login</Link>
+                                    </li>
+                                    <li className="nav-items">
+                                        <Link to="/register" className="nav-link">Register</Link>
+                                    </li>
+                                </ul> ) : null}
                     </div>
                 </div>
             </nav>
