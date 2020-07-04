@@ -27,7 +27,6 @@ class ClientDetails extends Component {
         }
 
         firestore.update({collection:'clients', doc: client.id}, clientUpdate);
-        console.log(this.state.balanceUpdateAmount);
     }
 
     onDeleteClick = () => {
@@ -38,8 +37,7 @@ class ClientDetails extends Component {
 
     render() {
         const client = this.props.client;
-        const showBalanceUpdate = this.state.showBalanceUpdate;
-        const balanceUpdateAmount = this.state.balanceUpdateAmount;
+        const { showBalanceUpdate , balanceUpdateAmount } = this.state;
 
         let balanceForm = '';
 
@@ -66,6 +64,7 @@ class ClientDetails extends Component {
         }
 
         if(client){
+            const { id, firstName, lastName, email, phone, balance} = client;
             return (
                 <div>
                     <div className="row">
@@ -76,7 +75,7 @@ class ClientDetails extends Component {
                         </div>
                         <div className="col-md-6">
                             <div className="btn-group float-right">
-                                <Link to={`/client/edit/${client.id}`} className="btn btn-dark">
+                                <Link to={`/client/edit/${id}`} className="btn btn-dark">
                                     Edit
                                 </Link>
                                 <button className="btn btn-danger" onClick={this.onDeleteClick}>Delete</button>
@@ -85,18 +84,18 @@ class ClientDetails extends Component {
                     </div>
                     <hr></hr>
                     <div className="card">
-                        <h3 className="card-header">{client.firstName} {client.lastName}</h3>
+                        <h3 className="card-header">{firstName} {lastName}</h3>
                         <div className="card-body">
                             <div className="row">
                                 <div className="col-mid-8 col-sm-6">
-                                    <h4>Client Id : <span className="text-secondary">{client.id}</span></h4>
+                                    <h4>Client Id : <span className="text-secondary">{id}</span></h4>
                                 </div>
                                 <div className="col-mid-4 col-sm-6">
                                     <h3 className="pull-right">
                                         Balance : <span className={classnames({
-                                        'text-danger': client.balance > 0,
-                                        'text-success': client.balance == 0
-                                    })}>Rs {client.balance}</span>
+                                        'text-danger': balance > 0,
+                                        'text-success': balance === 0
+                                    })}>Rs {balance}</span>
                                     {' '}
                                     <small>
                                         <a href='#!' 
@@ -110,8 +109,8 @@ class ClientDetails extends Component {
                             </div>
                             <hr></hr>
                             <ul className="list-group">
-                                <li className="list-group-item"> Email : {client.email}</li>
-                                <li className="list-group-item"> Phone : {client.phone}</li>
+                                <li className="list-group-item"> Email : {email}</li>
+                                <li className="list-group-item"> Phone : {phone}</li>
                             </ul>
                         </div>
                     </div>
